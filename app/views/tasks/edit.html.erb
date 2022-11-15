@@ -1,5 +1,10 @@
-<%= render "form", task: @task %>
-<%= link_to "Back to tasks list", tasks_path %>
+<div class="main-container">
+<h1>Edit Task</h1>
+  <div class="form">
+    <%= render "form", task: @task %>
+  </div>
+  <%= link_to "Back to tasks list", tasks_path %>
+</div>
 
 <%# <%= form_with model: @task do |f| %>
   <%# <%= f.label :title %>

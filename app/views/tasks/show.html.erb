@@ -1,8 +1,17 @@
-<h1> Task Info </h1>
+<div class="main-container">
+  <div class="d-flex justify-content-between">
+    <h1><%= @task.title %></h1>
+    <div><%= link_to "Edit", edit_task_path(@task) %>
+    </div>
+  </div>
+  <p class="alert alert-secondary" role="alert"><%= @task.details %></p>
+   <% if @task.completed? %>
+    <div class="d-flex"><i class="fa-solid fa-square-check"></i><p>This task is completed</p></div>
+    <%else%>
+    <div class="d-flex align-items-center"><i class="fa-regular fa-square"></i><p class="m-0 pl-3">This task is not yet completed</p></div>
+    <% end %>
 
-<h3><%= @task.title %></h3>
-<p><%= @task.details %></p>
-<%= link_to "Edit", edit_task_path(@task) %>
-<%= link_to "Back to list", tasks_path %>
-<%= link_to "Delete", task_path(@task), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}
-%>
+  <div>
+    <%= link_to "Back to list", tasks_path %>
+  </div>
+</div>

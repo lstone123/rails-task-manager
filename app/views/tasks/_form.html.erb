@@ -1,15 +1,20 @@
-<%= form_with model: @task do |f| %>
-  <%= f.label :title %>
-  <%= f.text_field :title %>
-
-  <%= f.label :details %>
-  <%= f.text_field :details %>
-
-<% unless @task.new_record? %>
-<%# could also write above line as f.object.new_record? %>
-  <%= f.label :completed %>
-  <%= f.check_box :completed %>
-<% end  %>
-
-  <%= f.submit %>
-<% end %>
+<div class="main-container">
+  <div class="d-flex flex-column form-title">
+    <%= form_with model: @task do |f| %>
+      <div><%= f.label :title %></div>
+      <div><%= f.text_field :title %></div>
+  </div>
+  <div class="d-flex flex-column form-description">
+    <div><%= f.label :details %></div>
+    <div><%= f.text_field :details %></div>
+  </div>
+  <div class="checkbox-card">
+  <% unless @task.new_record? %>
+  <%# could also write above line as f.object.new_record? %>
+    <%= f.label :completed %>
+    <%= f.check_box :completed %>
+  <% end  %>
+  </div>
+    <%= f.submit %>
+  <% end %>
+</div>

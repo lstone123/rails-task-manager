@@ -13,3 +13,30 @@
  *= require_tree .
  *= require_self
  */
+/* * {
+  /* border: 1px solid red; */
+/* } */
+
+ .main-container {
+  max-width: 900px;
+  margin: 10px auto 10px 10px;
+  padding: 10px;
+  /* background-color: aqua; */
+  justify-content: start
+ }
+
+ .main-container a {
+  text-decoration: none;
+ }
+
+ input[type="submit" i] {
+  background-color: #0D6EFD;
+  border-radius: 5px;
+  color: white;
+  padding: 5px;
+ }
+
+ /* .container input[type="text" i] {
+  /* width: 100%;
+  min-width: 400px;
+  max-width: 800px; */

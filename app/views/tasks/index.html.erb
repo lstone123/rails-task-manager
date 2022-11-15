@@ -1,15 +1,24 @@
-<h1>To-do List</h1>
-<ul>
-<% @tasks.each do |task| %>
-  <li>
-    <% if task.completed? %>
-      <i class="fa-solid fa-square-check"></i>
-    <%else%>
-      <i class="fa-regular fa-square-check"></i>
+<div class="main-container">
+  <h1>To-do List</h1>
+  <div class="border-bottom border-secondary">
+    <ul class="list-unstyled">
+    <% @tasks.each do |task| %>
+      <li>
+        <p>
+          <% if task.completed? %>
+            <i class="fa-solid fa-square-check"></i>
+          <%else%>
+            <i class="fa-regular fa-square-check"></i>
+          <% end %>
+          <%= link_to task.title, task_path(task) %> •
+          <%= link_to raw('<i class="fa-solid fa-trash-can"></i>'), task_path(task), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"} %>
+        </p>
     <% end %>
-    <%= link_to task.title, task_path(task) %>
-  </li>
-<% end %>
-</ul>
+      </li>
+    </ul>
+  </div>
+  <div>
+    <p class="pt-3"><%= link_to "➕ Add a new task", new_task_path %></p>
+  </div>
 
-<p><%= link_to "Create a new task", new_task_path %></p>
+</div>
