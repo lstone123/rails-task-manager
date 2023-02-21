@@ -1,5 +1,6 @@
 class TasksController < ApplicationController
-  before_action :find_task, only: [:show, :edit, :update, :destroy]
+  before_action :find_task, only: %i[show edit update destroy]
+
   def index
     @tasks = Task.all
   end
@@ -14,8 +15,11 @@ class TasksController < ApplicationController
 
   def create
     task = Task.new(task_params)
-    task.save
-    redirect_to task_path(task)
+    if task.save
+      redirect_to task_path(task)
+    else
+      render :new
+    end
   end
 
   def edit
